@@ -1,7 +1,7 @@
 import { Observable, of } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
-import { IWeatherService } from './weather.service'
+import { Coordinates, IWeatherService } from './weather.service'
 
 export const fakeWeather: ICurrentWeather = {
   city: 'Shanghai',
@@ -12,6 +12,9 @@ export const fakeWeather: ICurrentWeather = {
   description: 'light intensity drizzle',
 }
 export class WeatherServiceFake implements IWeatherService {
+  getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather> {
+    throw new Error('Method not implemented.')
+  }
   public getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
     return of(fakeWeather)
   }
