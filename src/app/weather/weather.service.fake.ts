@@ -1,4 +1,4 @@
-import { Observable, of } from 'rxjs'
+import { BehaviorSubject, Observable, of } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { Coordinates, IWeatherService } from './weather.service'
@@ -12,6 +12,10 @@ export const fakeWeather: ICurrentWeather = {
   description: 'light intensity drizzle',
 }
 export class WeatherServiceFake implements IWeatherService {
+  currentWeather$!: BehaviorSubject<ICurrentWeather>
+  updateCurrentWeather(search: string | number, country?: string): void {
+    throw new Error('Method not implemented.')
+  }
   getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather> {
     throw new Error('Method not implemented.')
   }
