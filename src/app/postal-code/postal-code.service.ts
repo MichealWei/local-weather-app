@@ -1,4 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
+import { unescapeIdentifier } from '@angular/compiler'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { defaultIfEmpty, mergeMap } from 'rxjs/operators'
@@ -12,6 +13,14 @@ export interface IPostalCode {
   lng: number
   lat: number
 }
+
+export const EmptyPostalCode = {
+  countryCode: '',
+  postalCode: '',
+  placeName: '',
+  lng: 0,
+  lat: 0,
+} as IPostalCode
 
 export interface IPostalCodeData {
   postalCodes: [IPostalCode]
@@ -44,7 +53,7 @@ export class PostalCodeService implements IPostalCodeService {
       )
       .pipe(
         mergeMap((data) => data.postalCodes),
-        defaultIfEmpty(null)
+        defaultIfEmpty(EmptyPostalCode)
       )
   }
 }
