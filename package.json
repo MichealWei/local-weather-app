@@ -108,9 +108,9 @@
     }
   },
   "config": {
-    "imageRepo": "[namespace]/[repository]",
-    "imageName": "custom_app_name",
-    "imagePort": "3000",
+    "imageRepo": "mikewei110/local-weather-app",
+    "imageName": "localWeatherShown",
+    "imagePort": "5080",
     "internalContainerPort": "3000"
   }
 }
